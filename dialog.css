@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+.alertbg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+    z-index: 2000;
+}
+
+.alertbox {
+    width: 50vw;
+    display: inline-block;
+    z-index: 2010;
+    vertical-align: middle;
+    text-align: center;
+    margin-left: auto;
+    margin-bottom: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: lightGrey;
+    margin-top: 50px;
+    padding: 20px;
+}
+.alertbox button {
+    margin-top: 1ex;
+}
+.kckdiagicon {
+    margin-bottom: 1ex;
+}
+.alerticon {
+    background-color: rgb(150,150,255);
+}
+
+.erroricon {
+    background-color: rgb(255,100,100);
+}
+
+.questionicon {
+    background-color: rgb(150,150,255);
+}
+.questionicon img {
+    max-width: 50px;
+}
+
+.filechooseicon {
+   background-color: orange;
+}
+
+.choosetablewrapper {
+   max-height: 300px;
+   overflow-y: auto;
+   margin-bottom: 10px;
+}
+
+.choosetable {
+   background-color: white;
+   text-align: left;
+   width: 100%;
+   box-sizing: border-box;
+}
+.choosetable tr, .choosetable tr {
+    width: 100%;
+}
+
+.choosetable tr td {
+   border-bottom: 1px solid gray;
+   cursor: pointer;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.choosetable img {
+   width: 20px;
+   margin-right: 6px;
+}
+.hiddenfile {
+    color: gray;
+}
+.popupformcloser {
+    float: right;
+    color: DarkRed;
+    font-family: sans-serif;
+    font-variant: small-caps;
+    cursor: pointer;
+}
+.popupformholder {
+    clear: both;
+    text-align: left;
+    margin-top: 1ex;
+    margin-bottom: 2ex;
+    overflow: auto;
+    max-height: 60vh;
+}
+.popupformholder input, .popupformholder button {
+    margin-right: 0.5em;
+    margin-bottom: 1ex;
+}
