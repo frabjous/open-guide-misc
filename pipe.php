@@ -1,12 +1,15 @@
 <?php
+// LICENSE: GNU GPL v3 You should have received a copy of the GNU General
+// Public License along with this program. If not, see 
+// https://www.gnu.org/licenses/.
 
 function pipe_to_command($cmd, $pipe_text) {
 
-   $rv = new StdClass();  
+   $rv = new StdClass();
 
    $descriptorspec = array(
       0 => array("pipe", "r"), // stdin
-      1 => array("pipe", "w"), // stdout 
+      1 => array("pipe", "w"), // stdout
       2 => array("pipe", "w")  // stderr
    );
 
@@ -22,9 +25,7 @@ function pipe_to_command($cmd, $pipe_text) {
       fclose($pipes[2]);
 
       $rv->returnvalue = proc_close($process);
-
    }
 
    return $rv;
-
 }

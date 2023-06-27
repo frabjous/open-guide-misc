@@ -1,43 +1,42 @@
 <?php
+// LICENSE: GNU GPL v3 You should have received a copy of the GNU General
+// Public License along with this program. If not, see 
+// https://www.gnu.org/licenses/.
 
 session_start();
-$dir = $_POST["folder"];
+require 'send-as-json.php';
 
-$poweruser = (
-    (
-        (isset($_SESSION["poweruser"])) && 
-        ($_SESSION["poweruser"])
-    ) || 
-    (
-        (isset($_SESSION["_ke_poweruser"])) && 
-        ($_SESSION["_ke_poweruser"])
-    )
-);
+$json = file_get_contents('php://input') ?? false;
+if ($json === false) {
+    rage_quit(new StdClass(), 'JSON not posted.',400);
+}
+$data = json_decode($json) ?? false;
+if ($data === false) {
+    rage_quit(new StdClass(), 'Could not parse posted JSON.', 400);
+}
+if (!isset($data->folder)) {
+    
+}
 
-if (!$poweruser) {
-    if (!isset($_SESSION["_ke_allowed_folders"])) {
-        echo "notallowed";
-        exit(1);
-    }
-    $allowed = false;
-    $dirrp = realpath($dir);
-    foreach ($_SESSION["_ke_allowed_folders"] as $afolder) {
-        if (substr($dirrp, 0, strlen($afolder)) == $afolder) {
-            $allowed = true;
-            break;
-        }
-    }
-    if (!$allowed) {
-        echo "notallowed";
-        exit(1);
+$dir = $data->folder;
+if ($dir == '') {
+    $dir = getenv('HOME') ?? '';
+}
+if ($dir == '') {
+    $dir = '/home';
+}
+
+if (file_exists("../php/libauthentication.php")) {
+    require "../php/libauthentication.php";
+    if (!has_authentication("$dir")) {
+        rage_quit(new StdClass(), "no authority to see files");
     }
 }
 
 chdir($dir);
-
 $files = scandir($dir);
-
-$retobj = array();
+$realdir = getcwd();
+$listData = array();
 
 function mycmp($a, $b) {
     if ($a == '..') {
@@ -69,10 +68,13 @@ for ($i=0; $i<count($files); $i++) {
         $x->dirName = $dir;
         $x->name = $files[$i];
         $x->isFolder = (is_dir($files[$i]));
-        array_push($retobj, $x);
+        array_push($listData, $x);
     }
 }
 
-echo json_encode($retobj);
-
-?>
+$rv = new StdClass();
+$rv->listData = $listData;
+$rv->dir = $realdir;
+$rv->error = false;
+send_as_json($rv, 200);
+exit(0);

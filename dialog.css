@@ -8,96 +8,166 @@
     height: 100%;
     background-color: rgba(0,0,0,0.7);
     text-align: center;
-    z-index: 2000;
+    z-index:1000;
+    font-family: sans-serif;
 }
-
 .alertbox {
+    position: relative;
     width: 50vw;
     display: inline-block;
-    z-index: 2010;
+    z-index: 1500;
     vertical-align: middle;
     text-align: center;
     margin-left: auto;
     margin-bottom: auto;
     border: 2px solid black;
-    border-radius: 10px;
-    background-color: lightGrey;
+    border-radius: 1rem;
+    background-color: var(--gray7);
+    color: var(--gray0);
     margin-top: 50px;
     padding: 20px;
 }
 .alertbox button {
-    margin-top: 1ex;
-}
-.kckdiagicon {
-    margin-bottom: 1ex;
-}
-.alerticon {
-    background-color: rgb(150,150,255);
+    margin-top: 0.5rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 150%;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
 }
 
-.erroricon {
-    background-color: rgb(255,100,100);
+
+.alerticon {
+    background-color: var(--lightblue);
+}
+
+.og-diag-icon {
+    margin-bottom: 0.5rem;
+}
+
+.og-diag-icon.alert {
+    background-color: var(--lightblue);
+}
+
+.og-diag-icon.error {
+    background-color: var(--lightred);
+}
+
+.og-diag-icon .material-symbols-outlined {
+    font-size: 300%;
 }
 
 .questionicon {
-    background-color: rgb(150,150,255);
-}
-.questionicon img {
-    max-width: 50px;
+    background-color: var(--lightblue);
 }
 
 .filechooseicon {
-   background-color: orange;
+   background-color: var(--lightgreen);
+}
+
+#ogfilechooser tr td span:first-child {
+    margin-right: 0.5rem;
+    position: relative;
+    top: 0.4rem;
 }
 
 .choosetablewrapper {
-   max-height: 300px;
+   max-height: 60vh;
    overflow-y: auto;
-   margin-bottom: 10px;
+   margin-bottom: 0.5rem;
 }
 
 .choosetable {
-   background-color: white;
+   background-color: var(--white);
    text-align: left;
    width: 100%;
    box-sizing: border-box;
 }
+
 .choosetable tr, .choosetable tr {
     width: 100%;
 }
 
 .choosetable tr td {
-   border-bottom: 1px solid gray;
+   border-bottom: 1px solid var(--gray2);
    cursor: pointer;
-   -moz-user-select: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
    user-select: none;
 }
 
-.choosetable img {
-   width: 20px;
-   margin-right: 6px;
+.choosetable tr:hover {
+    background-color: var(--lightgreen);
 }
+
 .hiddenfile {
-    color: gray;
+    color: var(--gray4);
 }
+
 .popupformcloser {
     float: right;
-    color: DarkRed;
+    color: var(--red);
     font-family: sans-serif;
     font-variant: small-caps;
     cursor: pointer;
 }
+
+.popupformcloser .material-symbols-outlined {
+    position: relative;
+    top: 0.5rem;
+    font-size: 200%;
+}
+
 .popupformholder {
     clear: both;
     text-align: left;
-    margin-top: 1ex;
-    margin-bottom: 2ex;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     overflow: auto;
     max-height: 60vh;
 }
+
 .popupformholder input, .popupformholder button {
-    margin-right: 0.5em;
-    margin-bottom: 1ex;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes spin {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}
+
+.material-symbols-outlined.spinning {
+    animation-name: spin;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#ogdialogwaitscreen .material-symbols-outlined.spinning {
+    font-size: 800%;
+}
+
+.filenamecontainer {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.filenamecontainer .filenamepath {
+    font-family: monospace;
+    margin-right: 0.3rem;
+}
+
+.filenamecontainer .filenameinput {
+    flex-grow: 1;
+    font-size: inherit;
+    font-family: monospace;
+    border: 2px solid transparent;
+}
+
+.filenamecontainer .filenameinput.invalid {
+    border: 2px solid var(--red);
 }
