@@ -3,7 +3,7 @@
 // Public License along with this program. If not, see 
 // https://www.gnu.org/licenses/.
 
-function pipe_to_command($cmd, $pipe_text) {
+function pipe_to_command($cmd, $pipe_text = '') {
 
    $rv = new StdClass();
 
