@@ -4,7 +4,7 @@
 // https://www.gnu.org/licenses/.
 
 session_start();
-require 'send-as-json.php';
+require_once 'send-as-json.php';
 
 $json = file_get_contents('php://input') ?? false;
 if ($json === false) {
