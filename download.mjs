@@ -23,6 +23,6 @@ export default function downloadFile(url, filename = false) {
     // add it to body, click it, then remove it
     document.body.appendChild(link);
     link.click();
-    document.body.remoteChild(link);
+    document.body.removeChild(link);
     return true;
 }
