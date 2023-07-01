@@ -2,6 +2,10 @@
 // Public License along with this program. If not, see 
 // https://www.gnu.org/licenses/.
 
+/////////////////////// fetch.mjs //////////////////////////////////////
+// Some functions can be used to create very simple UI dialog widgets //
+////////////////////////////////////////////////////////////////////////
+
 import fetch from './fetch.mjs';
 
 // NOTE: this expects that Google's material symbol outline icons

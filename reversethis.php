@@ -3,6 +3,11 @@
 // Public License along with this program. If not, see 
 // https://www.gnu.org/licenses/.
 
+/////////////// reversethis.php /////////////////////////////////////////
+// a fairly useless script that returns one of its url parameters      //
+// reversed; used for periodically testing the server is still working //
+/////////////////////////////////////////////////////////////////////////
+
 header('Content-type: text/plain');
 
 if (!isset($_GET["s"])) {

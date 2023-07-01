@@ -2,6 +2,11 @@
 // Public License along with this program. If not, see 
 // https://www.gnu.org/licenses/.
 
+////////////////////// fetch.mjs ///////////////////////////////////////
+// A simple function for making json post requests to the server and  //
+// handling the results                                               //
+// /////////////////////////////////////////////////////////////////////
+
 export default async function postData(url = "", data = {}) {
     const rv = {};
     try {

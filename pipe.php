@@ -3,6 +3,11 @@
 // Public License along with this program. If not, see 
 // https://www.gnu.org/licenses/.
 
+///////////////////// pipe.php ///////////////////////////////////////
+// defines a single function to run a shell command and capture its //
+// output and stderr, while sending stdin                           //
+// ///////////////////////////////////////////////////////////////////
+
 function pipe_to_command($cmd, $pipe_text = '') {
 
    $rv = new StdClass();

@@ -101,6 +101,21 @@ The result is structured like the following example:
 }
 ```
 
+## libservelet.php
+
+Defines a single function that can be used either for sending files from the PHP server, or sending the stdout of a command as if it were a file. The argument is a single associative array defining the parameters.
+
+```php
+
+servelet_send(array(
+    "attachmentname" => "nameoffilefordownload.txt", [optional],
+    "command" => "command to output result of", [optional],
+    "download" => <boolean>, [whether to send as download; optional],
+    "filename" => "nameoffile.ext", [to send or use; mandatory],
+    "mimetype" => "something/mimetype", [optional if sending file]
+));
+```
+
 ## pipe.php
 
 This file defines a single function that can be used to run a shell command with arbitrary text as stdin and capture its stdout and stderr and exit value.

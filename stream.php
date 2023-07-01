@@ -1,4 +1,8 @@
 <?php
+/////////////////////////// stream.php ///////////////////////////////
+// A script for sending pieces of an MP3 or similar file rather all //
+// at once, breaking some use cases                                 //
+//////////////////////////////////////////////////////////////////////
 // code mostly taken from https://stackoverflow.com/questions/11340276/make-mp3-seekable-php
 /**
  * Stream-able file handler
