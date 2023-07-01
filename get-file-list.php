@@ -32,7 +32,7 @@ if ($dir == '') {
 }
 
 if (file_exists("../php/libauthentication.php")) {
-    require "../php/libauthentication.php";
+    require_once "../php/libauthentication.php";
     if (!has_authentication("$dir")) {
         rage_quit(new StdClass(), "no authority to see files");
     }
