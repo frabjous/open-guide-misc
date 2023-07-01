@@ -67,7 +67,8 @@ function servelet_send($opts) {
     // if downloading, make the disposition an attachment
     if ($download) {
         //Use Content-Disposition: attachment to specify the filename
-        header('Content-Disposition: attachment; filename='$attachmentname);
+        header('Content-Disposition: attachment; filename=' .
+            $attachmentname);
     }
 
     // if not using a command, just send the file
