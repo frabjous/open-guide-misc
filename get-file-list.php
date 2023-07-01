@@ -3,6 +3,11 @@
 // Public License along with this program. If not, see 
 // https://www.gnu.org/licenses/.
 
+//////////////////////////// get-file-list.php //////////////////////////
+// used in conjunction with dialog.js, this populates a menu with the //
+// files in a given folder that the user can choose frm               //
+////////////////////////////////////////////////////////////////////////
+
 session_start();
 require 'send-as-json.php';
 
