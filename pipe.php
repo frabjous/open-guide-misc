@@ -21,8 +21,10 @@ function pipe_to_command($cmd, $pipe_text = '') {
    $process = proc_open($cmd, $descriptorspec, $pipes);
 
    if (is_resource($process)) {
-      fwrite($pipes[0], $pipe_text);
-      fclose($pipes[0]);
+       if ($pipe_text != '') {
+           fwrite($pipes[0], $pipe_text);
+           fclose($pipes[0]);
+       }
 
       $rv->stdout = stream_get_contents($pipes[1]);
       $rv->stderr = stream_get_contents($pipes[2]);
