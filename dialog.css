@@ -171,3 +171,21 @@
 .filenamecontainer .filenameinput.invalid {
     border: 2px solid var(--red);
 }
+
+.symbolpicker table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.symbolpicker table td {
+    background-color: white;
+    border: 1px solid LightGray;
+    padding: 0.2rem;
+    text-align: center;
+    vertical-align: center;
+    cursor: pointer;
+}
+
+.symbolpicker table td:hover {
+    background-color: var(--lightblue);
+}

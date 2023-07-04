@@ -215,13 +215,9 @@ const symbols = {
 
 export default function symbolPicker(callback, sz = 20) {
     let ctr=0;
-    let h = '<div><table><tbody><tr>';
+    let h = '<div class="symbolpicker"><table><tbody><tr>';
     for (let c in symbols) {
-        h += '<td title="' + symbols[c] + '" ' +
-            'style="background-color: white; border: 1px solid ' +
-            'LightGray; padding: 0.2rem; text-align: center; ' +
-            'vertical-align: center; cursor: pointer;" ' + '>' +
-            c + '</td>';
+        h += '<td title="' + symbols[c] + '">' + c + '</td>';
         ctr++;
         if ((ctr % sz) == 0) { h+= '</tr><tr>'; }
     }
