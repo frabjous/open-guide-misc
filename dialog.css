@@ -23,8 +23,8 @@
     margin-bottom: auto;
     border: 2px solid black;
     border-radius: 1rem;
-    background-color: var(--gray6);
-    color: var(--black);
+    background-color: LightGray;
+    color: black;
     margin-top: 50px;
     padding: 20px;
 }
@@ -41,7 +41,7 @@
 
 
 .alerticon {
-    background-color: var(--brightblue);
+    background-color: LightBlue;
 }
 
 .og-diag-icon {
@@ -49,11 +49,11 @@
 }
 
 .og-diag-icon.alert {
-    background-color: var(--brightblue);
+    background-color: LightBlue;
 }
 
 .og-diag-icon.error {
-    background-color: var(--brightred);
+    background-color: LightRed;
 }
 
 .og-diag-icon .material-symbols-outlined {
@@ -61,11 +61,11 @@
 }
 
 .questionicon {
-    background-color: var(--brightblue);
+    background-color: LightBlue;
 }
 
 .filechooseicon {
-   background-color: var(--brightgreen);
+   background-color: LightBlue;
 }
 
 #ogfilechooser tr td span:first-child {
@@ -81,7 +81,7 @@
 }
 
 .choosetable {
-   background-color: var(--white);
+   background-color: white;
    text-align: left;
    width: 100%;
    box-sizing: border-box;
@@ -92,22 +92,22 @@
 }
 
 .choosetable tr td {
-   border-bottom: 1px solid var(--gray2);
+   border-bottom: 1px solid DarkGray;
    cursor: pointer;
    user-select: none;
 }
 
 .choosetable tr:hover {
-    background-color: var(--brightgreen);
+    background-color: LightGreen;
 }
 
 .hiddenfile {
-    color: var(--gray4);
+    color: gray;
 }
 
 .popupformcloser {
     float: right;
-    color: var(--red);
+    color: Red;
     font-family: sans-serif;
     font-variant: small-caps;
     cursor: pointer;
@@ -170,7 +170,7 @@
 }
 
 .filenamecontainer .filenameinput.invalid {
-    border: 2px solid var(--red);
+    border: 2px solid red;
 }
 
 .symbolpicker table {
@@ -180,7 +180,7 @@
 
 .symbolpicker table td {
     background-color: white;
-    border: 1px solid var(--gray6);
+    border: 1px solid gray;
     padding: 0.2rem;
     text-align: center;
     vertical-align: middle;
@@ -188,5 +188,5 @@
 }
 
 .symbolpicker table td:hover {
-    background-color: var(--brightblue);
+    background-color: LightBlue;
 }
