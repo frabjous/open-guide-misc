@@ -213,18 +213,14 @@ const symbols = {
     "ϕ" : "phi variant"
 }
 
-export default function symbolPicker(callback, sz = 20) {
-    let ctr=0;
-    let h = '<div class="symbolpicker"><table><tbody><tr>';
+export default function symbolPicker(callback) {
+    let h = '<div class="symbolpicker"><div><div>';
     for (let c in symbols) {
-        h += '<td title="' + symbols[c] + '">' + c + '</td>';
-        ctr++;
-        if ((ctr % sz) == 0) { h+= '</tr><tr>'; }
+        h += '<span title="' + symbols[c] + '">' + c + '</span>';
     }
-    while ((ctr % sz) != 0) { h+='<td></td>'; ctr++ }
-    h += '</tr></tbody></table></div>';
+    h += '</div></div></div>';
     const bigDiv = ogDialog.popupform(h);
-    const tdtd = bigDiv.getElementsByTagName("td");
+    const tdtd = bigDiv.getElementsByTagName("span");
     for (let td of tdtd) {
         td.callback = callback;
         td.myBDiv = bigDiv;

@@ -172,12 +172,9 @@
     border: 2px solid red;
 }
 
-.symbolpicker table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-.symbolpicker table td {
+.symbolpicker span {
+    display: inline-block;
+    width: 1.6rem;
     background-color: white;
     border: 1px solid gray;
     padding: 0.2rem;
@@ -186,6 +183,6 @@
     cursor: pointer;
 }
 
-.symbolpicker table td:hover {
+.symbolpicker span:hover {
     background-color: LightBlue;
 }
