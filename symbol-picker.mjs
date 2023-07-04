@@ -220,7 +220,8 @@ export default function symbolPicker(callback, sz = 20) {
         h += '<td title="' + symbols[c] + '" ' +
             'style="background-color: white; border: 1px solid ' +
             'LightGray; padding: 0.2rem; text-align: center; ' +
-            'vertical-align: center;" ' + '>' + c + '</td>';
+            'vertical-align: center; cursor: pointer;" ' + '>' +
+            c + '</td>';
         ctr++;
         if ((ctr % sz) == 0) { h+= '</tr><tr>'; }
     }
@@ -230,7 +231,11 @@ export default function symbolPicker(callback, sz = 20) {
     const tdtd = bigDiv.getElementsByTagName("td");
     for (let td of tdtd) {
         td.callback = callback;
-        td.onclick = function(){ this.callback(this.innerHTML) };
+        td.myBDiv = bigDiv;
+        td.onclick = function(){
+            this.callback(this.innerHTML);
+            this.myBDiv.closeMe();
+        };
     }
 }
 
