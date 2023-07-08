@@ -19,7 +19,7 @@ const ogDialog = {};
 // be on new element
 ogDialog.blurall = function() {
     const inputs = document.getElementsByTagName("input");
-    for (const i=0; i < inputs.length; i++) {
+    for (let i=0; i < inputs.length; i++) {
         inputs[i].blur();
     }
     const as = document.getElementsByTagName("a");
