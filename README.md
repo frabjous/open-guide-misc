@@ -76,6 +76,14 @@ This file defines a single asynchronous function useful for sending json-encodab
 [async] postData(url, data) → promise of object
 ```
 
+## formreader.mjs
+
+This defiles a function that takes a DOM element as argument, and returns a json-serializable object containing the &lt;input&gt;,  &lt;textarea&gt;, and &lt;select&gt; fields (by id or name) and their values inside the element; checkboxes are assigned booleans, and radio boxes just one value for the name.
+
+```js
+getformfields(elem) → object containing key→value pairings
+```
+
 ## get-file-list.php
 
 A php script that returns a list of files as requested by the `ogDialog.filechoose` function in `dialog.mjs` as stdout.
@@ -101,6 +109,10 @@ The result is structured like the following example:
     ]
 }
 ```
+
+## json-request.php
+
+When required by another PHP script, this script will read JSON data send as stdin to the script, parse it as the object `$data`, and destructure the top level keys it contains as global variables to the script. E.g., `$data->something` will also be available as `$something`. This script loads `send-as-json.php` as well, and if it cannot parse the input as JSON, it quits with a `rage_quit`-style error.
 
 ## libservelet.php
 
@@ -133,12 +145,13 @@ A silly PHP page/script that takes a single string as a url parameter `?s=someth
 
 ## send-as-json.php
 
-Defines two PHP functions. (1) `send_as_json` sends json encoding of a jsonable object to stdout, while setting the http status (200 by default) and content-type headers appropriate for such a response; (2) `rage_quit` also outputs json and sets the http status (400 by default), but with an attribute `error` set to true and an `errMsg` passed to the browser, and exits the execution of the script.
+Defines four PHP functions. (1) `send_as_json` sends json encoding of a jsonable object to stdout, while setting the http status (200 by default) and content-type headers appropriate for such a response; (2) `jsend` which is just like `send_as_json` but uses the global `$rv` (return value) variable, (3) `rage_quit` also outputs json and sets the http status (400 by default), but with an attribute `error` set to true and an `errMsg` passed to the browser, and exits the execution of the script, and (4) `jquit` which is just like `rage_quit` except uses the global `$rv` object.
 
 ```php
-rage_quit($obj_to_serialize, $errormessage, $httpstatus)
 send_as_json($obj_to_serialize, $httpstatus)
-
+jsend($httpstatus)
+rage_quit($obj_to_serialize, $errormessage, $httpstatus)
+jquit($errormessage, $httpstatus)
 ```
 
 ## stream.php

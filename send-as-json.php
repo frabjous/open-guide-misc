@@ -24,7 +24,13 @@ function rage_quit($obj, $error = 'Unknown error', $status = 400) {
     $obj->error = true;
     $obj->errMsg = $error;
     send_as_json($obj, $status);
-    exit;
+    exit();
+}
+
+function jquit($error = 'Unknown error', $status = 400) {
+    global $rv;
+    if (!isset($rv)) { $rv = new StdClass(); }
+    rage_quit($rv, $error, $status);
 }
 
 // outputs an object as json
@@ -32,4 +38,11 @@ function send_as_json($obj, $status = 200) {
     header('HTTP/1.1 ' . strval($status) . ' ' . HTTP_STATUSES[$status]);
     header('Content-Type: application/json');
     echo json_encode($obj);
+}
+
+function jsend($status = 200) {
+    global $rv;
+    if (!isset($rv)) { $rv = new StdClass(); }
+    send_as_json($rv, $status);
+    exit();
 }
