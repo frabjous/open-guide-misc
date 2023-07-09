@@ -110,6 +110,17 @@ The result is structured like the following example:
 }
 ```
 
+## hostinfo.php
+
+Defines three functions useful for determining the URL currently being served, its host, and its path.
+
+```php
+full_host() // returns host name of current request
+full_url() // returns complete url of request
+full_path() // returns complete url but without ?= url parameters
+
+```
+
 ## json-request.php
 
 When required by another PHP script, this script will read JSON data send as stdin to the script, parse it as the object `$data`, and destructure the top level keys it contains as global variables to the script. E.g., `$data->something` will also be available as `$something`. This script loads `send-as-json.php` as well, and if it cannot parse the input as JSON, it quits with a `rage_quit`-style error.
@@ -134,7 +145,7 @@ servelet_send(array(
 This file defines a single function that can be used to run a shell command with arbitrary text as stdin and capture its stdout and stderr and exit value.
 
 ```php
-pipe_to_command(shellcommand, stdin) → object
+pipe_to_command(shellcommand, stdin) // yields object with stdin, stderr and returnvalue attributes
 ```
 
 The object that is the return value, `$rv`, has three attributes `$rv->stdout`, `$rv->stderr` and `$rv->returnvalue`.
