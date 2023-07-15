@@ -73,7 +73,14 @@ ogDialogue.popupform(htmltext, allowclose, closebuttontext)
 
 This file defines a single asynchronous function useful for sending json-encodable objects to the server and returning an promise for an object obtained by decoding the json response.
 ```javascript
-[async] postData(url, data) → promise of object
+[async] postData(url, data) //→ promise of object with attributes .error and .respObj
+```
+
+## file-upload.mjs
+
+Similar to fetch.mjs, this defines a single function which can be used to send the files from an HTML file input element, along with json-able data, and returns a promise obtained by decoding the json response.
+```javascript
+[async] uploadFiles(fileInputElement, url, data) //→ promise of object with attributes .error and .respObj
 ```
 
 ## formreader.mjs
@@ -81,7 +88,7 @@ This file defines a single asynchronous function useful for sending json-encodab
 This defiles a function that takes a DOM element as argument, and returns a json-serializable object containing the &lt;input&gt;,  &lt;textarea&gt;, and &lt;select&gt; fields (by id or name) and their values inside the element; checkboxes are assigned booleans, and radio boxes just one value for the name.
 
 ```js
-getformfields(elem) → object containing key→value pairings
+getformfields(elem) //→ object containing key→value pairings
 ```
 
 ## get-file-list.php
