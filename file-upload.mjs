@@ -9,8 +9,10 @@
 
 export default async function uploadFiles(inputelem, url = "", data = {}) {
     const fD = new FormData();
+    let ctr=0;
     for (const file of inputelem.files) {
-        fD.append('files', file);
+        fD.append('files' + ctr.toString(), file);
+        ctr++;
     }
     fD.append('requestjson', JSON.stringify(data));
     const rv = {};
