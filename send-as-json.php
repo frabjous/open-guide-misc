@@ -13,7 +13,8 @@ const HTTP_STATUSES = [
     400 => 'Bad Request',
     403 => 'Forbidden',
     404 => 'Not Found',
-    405 => 'Method Not Allowed'
+    405 => 'Method Not Allowed',
+    500 => 'Internal Server Error'
 ];
 
 // create an error in the response and send it
