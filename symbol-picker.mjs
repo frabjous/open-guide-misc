@@ -1,5 +1,5 @@
 // LICENSE: GNU GPL v3 You should have received a copy of the GNU General
-// Public License along with this program. If not, see 
+// Public License along with this program. If not, see
 // https://www.gnu.org/licenses/.
 
 /////////////////////// symbol-pocker.mjs ///////////////////////////////
@@ -50,6 +50,7 @@ const symbols = {
     "⊢" : "turnstile",
     "⊨" : "double turnstile",
     "⊥" : "absurdity",
+    "⊤": "triviality",
     "←" : "left arrow",
     "↑" : "up arrow",
     "→" : "right arrow",
@@ -100,7 +101,7 @@ const symbols = {
     "«" : "left double angle quotation mark",
     "»" : "right double angle quotation mark",
     "‚" : "low single quotation mark",
-    "„" : "low double quotation mark", 
+    "„" : "low double quotation mark",
     "⟨" : "left angle bracket",
     "⟩" : "right angle bracket",
     "ß" : "Ess Zed",
