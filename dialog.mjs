@@ -1,5 +1,5 @@
 // LICENSE: GNU GPL v3 You should have received a copy of the GNU General
-// Public License along with this program. If not, see 
+// Public License along with this program. If not, see
 // https://www.gnu.org/licenses/.
 
 /////////////////////// fetch.mjs //////////////////////////////////////
@@ -270,6 +270,11 @@ ogDialog.filechoose =  async function (
         chooseTable.myBDiv.parentNode.removeChild(chooseTable.myBDiv);
         ogDialog.errdiag('ERROR: Invalid response from server.');
         return;
+    }
+    if (("error" in fetchResult.respObj) && (fetchResult.respObj.error)) {
+        chooseTable.myBDiv.parentNode.removeChild(chooseTable.myBDiv);
+        ogDialog.errdiag('ERROR: ' + (fetchResult?.respObj?.errMsg ??
+            'Unknown error.'));
     }
     if (!"dir" in fetchResult?.respObj) {
         chooseTable.myBDiv.parentNode.removeChild(chooseTable.myBDiv);

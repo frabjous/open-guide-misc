@@ -1,6 +1,6 @@
 <?php
 // LICENSE: GNU GPL v3 You should have received a copy of the GNU General
-// Public License along with this program. If not, see 
+// Public License along with this program. If not, see
 // https://www.gnu.org/licenses/.
 
 //////////////////////////// get-file-list.php //////////////////////////
@@ -20,7 +20,7 @@ if ($data === false) {
     rage_quit(new StdClass(), 'Could not parse posted JSON.', 400);
 }
 if (!isset($data->folder)) {
-    
+
 }
 
 $dir = $data->folder;
@@ -34,7 +34,7 @@ if ($dir == '') {
 if (file_exists("../php/libauthentication.php")) {
     require_once "../php/libauthentication.php";
     if (!has_authentication("$dir")) {
-        rage_quit(new StdClass(), "no authority to see files");
+        rage_quit(new StdClass(), "no authority to see files", 403);
     }
 }
 
